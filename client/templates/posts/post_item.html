@@ -1,0 +1,26 @@
+<template name="postItem">
+  <div class="post">
+    <div class="post-content">
+      <h3>
+        <a href="{{pathFor 'postPage'}}" class="title ">{{title}}</a>
+        {{#each tagsPost}}
+          {{> tagItem}}
+        {{/each}}
+        <span  class="navbar-right">
+          <a href="{{pathFor 'postPage'}}">
+            <span>{{#if likedText}}<a href="#" class="{{likedClass}}">{{likedText}}</a>{{/if}}</span>
+            <span class="glyphicon glyphicon-thumbs-up">{{likes}} </span>
+            <span class="glyphicon glyphicon-comment">{{commentsCount}}</span>
+          </a>
+          {{#if ownPost}}
+            <a href="{{pathFor 'postEdit'}}">
+              <span class="glyphicon glyphicon-edit">Edit</span>
+            </a>
+          {{/if}}
+        </span>
+      </h3>
+      <div class="sortContent" name="sortContent">{{sortContent}}</div>
+        <a href="{{userPagePath}}">{{author}}</a><span class="date"> {{submittedText}}</span>
+    </div>
+  </div>
+</template>

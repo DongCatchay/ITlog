@@ -1,0 +1,16 @@
+<template name="tags">
+	<div class="page post" style="top:50px;">
+	{{#each tags}}
+		{{> tag}}
+	{{/each}}
+	</div>
+</template>
+
+<template name="tag">
+	<div class="post">
+			<div class="post-content">
+				{{> tagItem}}
+				<span>Có {{followers.length}} người đang theo dõi va {{postsCount}} bai đang</span>
+			</div>
+		</div>
+</template>

@@ -1,0 +1,81 @@
+<template name="userProfile">
+	{{#if currentUser}}
+	<div class="main page">
+		<table class="table">
+			<tr>
+				<td width="50%">
+					<form class="form-user">
+						<div class="form-group">
+							<div class="controls {{errorClass 'username'}}">
+								<label class="control-label" for="username">Tên đăng nhập</label>
+								<span class="help-block">{{errorMessage 'username'}}</span>
+								<input name="username" id="username" type="text" value="{{username}}" placeholder="Tên đăng nhập của ban" class="form-control" />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="controls {{errorClass 'name'}}">
+								<label class="control-label" for="nickname">Nickname</label>
+								<span class="help-block">{{errorMessage 'name'}}</span>
+								<input name="nickname" id="nickname" type="text" value="{{profile.name}}" placeholder="Nickname của ban" class="form-control" />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="controls">
+								<label class="control-label" for="last-name">Ho</label>
+								<input name="last-name" id="last-name" type="text" value="{{profile.last_name}}" placeholder="Ho của ban" class="form-control" />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="controls">
+								<label class="control-label" for="first-name">Tên</label>
+								<input name="first-name" id="first-name" type="text" value="{{profile.first_name}}" placeholder="Tên của ban" class="form-control" />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="controls {{errorClass 'emails'}}">
+								<label class="control-label" for="email">Mail</label>
+								<span class="help-block">{{errorMessage 'emails'}}</span>
+								<input name="email" id="email" type="text" value="{{#each emails}}{{address}}{{/each}}" placeholder="E-mail của ban" class="form-control" />
+							</div>
+						</div>
+						<button type="submit" value="Lưu thay đổi" class="btn btn-primary submit">
+			        		<span class="glyphicon glyphicon-floppy-saved"></span> Lưu thay đổi
+			      		</button>
+					</form>
+				</td>
+				<td width="10%">.</td>
+				<td style="vertical-align: baseline;">
+					<form class="form-password">
+						<div class="form-group">
+							<div class="controls {{errorClassPassword 'currentPassword'}}">
+								<label class="control-label" for="currentPassword">Mật khẩu cũ</label>
+								<span class="help-block">{{errorMessagePassword 'currentPassword'}}</span>
+								<input name="currentPassword" id="currentPassword" type="text" class="form-control" />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="controls {{errorClassPassword 'newPassword'}}">
+								<label class="control-label" for="new-password">Mật khẩu mới</label>
+								<span class="help-block">{{errorMessagePassword 'newPassword'}}</span>
+								<input name="new-password" id="new-password" type="text" class="form-control" />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="controls {{errorClassPassword 'confirmPassword'}}">
+								<label class="control-label" for="confirm-password">Nhập lại mật khẩu</label>
+								<span class="help-block">{{errorMessagePassword 'confirmPassword'}}</span>
+								<input name="confỉrm-password" id="confirm-password" type="text" class="form-control" />
+							</div>
+						</div>
+						<button type="submit" value="Lưu thay đổi" class="btn btn-primary submit">
+			        		<span class="glyphicon glyphicon-check"></span> Đổi mật khẩu
+			      		</button>
+					</form>
+				</td>
+			</tr>
+		</table>
+	</div>
+	{{else}}
+		{{> accessDenied}}
+	{{/if}}
+</template>

@@ -1,0 +1,17 @@
+<template name="postsList">
+  <div class="post page" style="top:50px">
+    <div class="wrapper">
+      {{#each posts}}
+        {{> postItem}}
+      {{/each}}
+    </div>
+
+    {{#if nextPath}}
+      <a href="{{nextPath}}" class="load-more">Xem thêm</a>
+    {{else}}
+      {{#unless ready}}
+            {{> spinner}}
+          {{/unless}}
+    {{/if}}
+  </div>
+</template>

@@ -1,0 +1,21 @@
+<template name="postPage">
+  <div class="page">
+    {{> postItem}}
+    <div class="post">
+      <label class="control-label" for="content">Nội dung bài viết</label>
+      <hr/>
+      <div class="display">{{content}}</div>
+    </div>
+    <hr/>
+    {{#if currentUser}}
+      {{> commentSubmit}}
+    {{else}}
+      <p>Please login to leave a comment.</p>
+    {{/if}}
+    <ul class="comments post">
+      {{#each comments}}
+        {{> commentItem}}
+      {{/each}}
+    </ul>
+  </div>
+</template>

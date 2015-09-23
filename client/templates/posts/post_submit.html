@@ -1,0 +1,39 @@
+<template name="postSubmit">
+  <div class="page">
+    {{#if currentUser}}
+    <form class="main form">
+      <div class="form-group {{errorClass 'title'}}">
+        <label class="control-label" for="title">Tựa đề</label>
+        <span class="help-block">{{errorMessage 'title'}}</span>
+        <div class="controls">
+          <input name="title" id="title" type="text" value="{{title}}" placeholder="Tựa đề" class="form-control" />
+        </div>
+      </div>
+      <div class="form-group {{errorClass 'tags'}}">
+        <label class="control-label" for="tags">Chủ đề</label>
+        <span class="help-block">{{errorMessage 'tags'}}</span>
+        <div class="controls">
+          <input name="tags" id="tags" data-role="tagsinput" type="text" placeholder="Chủ đề" class="form-control tags" />
+        </div>
+      </div>
+      <div class="form-group {{errorClass 'content'}}">
+        <div class="controls">
+          <label class="control-label" for="content">Nội dung bai viết</label>
+          <span class="help-block">{{errorMessage 'content'}}</span>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <td width="50%"><textarea name="content" id="content" class="form-control content" placeholder="Nội dung bai viết" rows="15"></textarea></td>
+                <td class="result form-contro"></td>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary submit" > 
+        <span class="glyphicon glyphicon-plus"></span> Đăng bài viết
+      </button>
+    </form>
+    {{/if}}
+  </div>
+</template>
